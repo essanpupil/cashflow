@@ -13,7 +13,3 @@ class BrowserTest(StaticLiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
         cache.clear()
-
-    def test_open_homepage(self):
-        self.browser.get(self.live_server_url)
-        self.assertEqual("Welcome to cashflow", self.browser.title)
