@@ -1,0 +1,4 @@
+-r requirement_testing.txt
+neovim==0.1.10
+pylint==1.6.4
+pylint-django==0.7.2
