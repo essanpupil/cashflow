@@ -17,3 +17,10 @@ class BrowserTest(StaticLiveServerTestCase):
     def test_homepage(self):
         self.browser.get(self.live_server_url)
         self.assertEqual('Welcome to Cashflow', self.browser.title)
+
+    def test_enter_cash_menu(self):
+        self.browser.get(self.live_server_url)
+        self.assertEqual('Welcome to Cashflow', self.browser.title)
+        cash_menu = self.browser.find_element_by_link_text('Cash')
+        cash_menu.click()
+        self.assertEqual('This is the cash application', self.browser.title)
