@@ -90,3 +90,6 @@ ENV/
 
 # sqlite databate
 *.sqlite3
+
+# PyCharm directory
+.idea/
