@@ -5,4 +5,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^new_activity$', views.NewActivity.as_view(), name='new_activity'),
 ]
