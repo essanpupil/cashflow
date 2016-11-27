@@ -16,7 +16,7 @@ class CashActivityTest(BrowserTest):
 
         # enter cash app index page
         self.assertEqual('This is the cash application', self.browser.title)
-        new_cash_activity = self.browser.find_element_by_link_text('New cash ativity')
+        new_cash_activity = self.browser.find_element_by_link_text('New cash activity')
         new_cash_activity.click()
 
         # enter input page  for cash activity
