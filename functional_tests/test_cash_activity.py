@@ -34,7 +34,8 @@ class CashActivityTest(BrowserTest):
         activity_type.select_by_value('credit')
         activity_value = new_cash_activity_form.find_element_by_name('value')
         activity_value.send_keys('15000000')
-        new_cash_activity_form.submit()
+        save_button = new_cash_activity_form.find_element_by_id('save_new_activity')
+        save_button.click()
 
         # see the result in activity list page
         self.assertEqual('Cash activity list', self.browser.title)

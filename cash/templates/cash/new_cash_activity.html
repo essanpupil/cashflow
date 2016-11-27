@@ -6,6 +6,7 @@
     <h1>Enter your cash activity here</h1>
     <form id="cash_activity_form" method="post" action="">{% csrf_token %}
       {{ form }}
+      <input id="save_new_activity" type="submit" value="Save New Cash Activity" />
     </form>
   </body>
 </html>
