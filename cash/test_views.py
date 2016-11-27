@@ -43,3 +43,9 @@ class ActivityListTest(CashTestCase):
     def test_get_activity_list(self):
         response = self.client.get(reverse('cash:activity_list'))
         self.assertEqual(200, response.status_code)
+
+    def test_get_activity_list_with_value(self):
+        models.Activity.objects.create(description='Buy notebook', value=5000000)
+        response = self.client.get(reverse('cash:activity_list'))
+        self.assertEqual(200, response.status_code)
+        self.assertIn(b'Buy notebook', response.content)
