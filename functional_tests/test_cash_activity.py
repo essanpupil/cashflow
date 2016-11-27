@@ -1,3 +1,4 @@
+from datetime import datetime
 from selenium.webdriver.support.ui import Select
 
 from django.utils import timezone
@@ -28,8 +29,6 @@ class CashActivityTest(BrowserTest):
         new_cash_activity_form = self.browser.find_element_by_id('cash_activity_form')
         activity_description = new_cash_activity_form.find_element_by_name('description')
         activity_description.send_keys('Buy laptop')
-        activity_time = new_cash_activity_form.find_element_by_name('time')
-        activity_time.send_keys(str(timezone.localtime(timezone.now())))
         activity_type = Select(new_cash_activity_form.find_element_by_name('activity_type'))
         activity_type.select_by_value('credit')
         activity_value = new_cash_activity_form.find_element_by_name('value')
