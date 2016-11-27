@@ -1,5 +1,9 @@
+from datetime import datetime
+
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
+
+from . import models
 
 
 class CashTestCase(TestCase):
@@ -21,6 +25,17 @@ class CashActivityTest(CashTestCase):
     def test_get_cash_activity(self):
         response = self.client.get(reverse('cash:new_activity'))
         self.assertEqual(200, response.status_code)
+
+    def test_post_cash_activity(self):
+        form_data = {
+            'description': 'Buy laptop',
+            'value': 15000000,
+            'activity_type': 'credit',
+            'time': datetime.now()
+        }
+        response = self.client.post(reverse('cash:new_activity'), form_data)
+        self.assertTrue(models.Activity.objects.get(description=form_data['description']))
+        self.assertRedirects(response, expected_url=reverse('cash:activity_list'))
 
 
 class ActivityListTest(CashTestCase):
