@@ -2,4 +2,10 @@
   <head>
     <title>Cash activity list</title>
   </head>
+  <body>
+    <table id="activity_list">
+      {% for object in object_list %}
+        <tr><td>{{ object.description }}</td></tr>
+      {% endfor %}
+    </table>
 </html>
