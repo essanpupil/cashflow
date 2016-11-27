@@ -30,13 +30,13 @@ class CashActivityTest(BrowserTest):
         activity_description.send_keys('Buy laptop')
         activity_time = new_cash_activity_form.find_element_by_name('time')
         activity_time.send_keys(str(timezone.localtime(timezone.now())))
-        activity_type = Select(new_cash_activity_form.find_element_by_name('type'))
+        activity_type = Select(new_cash_activity_form.find_element_by_name('activity_type'))
         activity_type.select_by_value('credit')
         activity_value = new_cash_activity_form.find_element_by_name('value')
         activity_value.send_keys('15000000')
         new_cash_activity_form.submit()
 
-        # see the result in activity list
+        # see the result in activity list page
         self.assertEqual('Cash activity list', self.browser.title)
         activity_list = self.browser.find_element_by_id('activity_list')
         self.assertIn('Buy laptop', activity_list.text)
