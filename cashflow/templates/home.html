@@ -1,8 +1,5 @@
-<html>
-  <head>
-    <title>Welcome to Cashflow</title>
-  </head>
-  <body>
-    <a href="{% url 'cash:index' %}">Cash</a>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Welcome to Cashflow{% endblock %}
+{% block 'content' %}
+<a href="{% url 'cash:index' %}">Cash</a>
+{% endblock %}
