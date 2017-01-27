@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-{% block 'title' %}This is the cash application{% endblock %}
-{% block 'sidebar' %}
+{% block title %}This is the cash application{% endblock %}
+{% block sidebar %}
   <ul class="nav nav-sidebar">
     <li class="active"><a href="{% url 'cash:index' %}">Cash <span class="sr-only">(current)</span></a></li>
     <li><a href="{% url 'cash:new_activity' %}">New cash activity</a></li>
   </ul>
 {% endblock %}
-{% block 'page_header' %}Cash{% endblock %}
+{% block page_header %}Cash{% endblock %}
