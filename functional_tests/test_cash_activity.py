@@ -12,7 +12,7 @@ class CashActivityTest(BrowserTest):
         # enter dashboard
         self.browser.get(self.live_server_url)
         self.assertEqual('Welcome to Cashflow', self.browser.title)
-        cash_menu = self.browser.find_element_by_link_text('Cash')
+        cash_menu = self.browser.find_element_by_partial_link_text('Cash')
         cash_menu.click()
 
         # enter cash app index page
@@ -22,7 +22,7 @@ class CashActivityTest(BrowserTest):
 
         # enter input page  for cash activity
         self.assertEqual('Enter your cash activity here', self.browser.title)
-        header_page = self.browser.find_element_by_tag_name('h1')
+        header_page = self.browser.find_element_by_tag_name('h3')
         self.assertEqual('Enter your cash activity here', header_page.text)
 
         # fill cash activity form & submit
