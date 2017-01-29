@@ -1,12 +1,7 @@
 {% extends 'cash/index.html' %}
+{% load render_table from django_tables2 %}
 {% block title %}Cash activity list{% endblock %}
 {% block content_subheader %}Cash Activity list{% endblock %}
 {% block content %}
-<div class="table-responsive">
-  <table class="table table-striped" id="activity_list">
-    {% for object in object_list %}
-       <tr><td>{{ object.description }}</td></tr>
-     {% endfor %}
-  </table>
-</div>
+{% render_table object_list %}
 {% endblock %}
