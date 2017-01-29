@@ -6,7 +6,7 @@ from . import models
 
 
 def index(request):
-    return render(request, 'cash/index.html')
+    return render(request, 'cash/base.html')
 
 
 class NewActivity(CreateView):
