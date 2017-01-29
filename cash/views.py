@@ -1,7 +1,10 @@
+import django_tables2 as table
+
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView
 from django.core.urlresolvers import reverse_lazy
 
+from cash.tables import ActivityListTable
 from . import models
 
 
@@ -18,3 +21,9 @@ class NewActivity(CreateView):
 
 class ActivityList(ListView):
     model = models.Activity
+
+    def get_context_data(self, **kwargs):
+        context = super(ActivityList, self).get_context_data(**kwargs)
+        context['object_list'] = ActivityListTable(self.get_queryset())
+        table.RequestConfig(self.request).configure(context['object_list'])
+        return context
