@@ -1,13 +1,7 @@
 {% extends 'cash/index.html' %}
-{% block 'title' %}Enter your cash activity here{% endblock %}
-{% block 'sidebar' %}
-  <ul class="nav nav-sidebar">
-    <li><a href="{% url 'cash:index' %}">Cash</a></li>
-    <li class="active"><a href="{% url 'cash:new_activity' %}">New cash activity <span class="sr-only">(current)</span></a></li>
-  </ul>
-{% endblock %}
-{% block 'sub_header' %}Enter your cash activity here{% endblock %}
-{% block 'content' %}
+{% block title %}Enter your cash activity here{% endblock %}
+{% block content_subheader %}Enter your cash activity here{% endblock %}
+{% block content %}
   <form id="cash_activity_form" method="post" action="">{% csrf_token %}
     {{ form }}
     <input id="save_new_activity" type="submit" value="Save New Cash Activity" />

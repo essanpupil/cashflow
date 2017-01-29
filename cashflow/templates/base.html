@@ -16,7 +16,7 @@
     <h2>Help you manage your cash</h2>
 
     <ul>
-        <li><a href="{% url 'home' %}" class="active">Dashboard <span>Menu</span></a></li>
+        <li><a href="{% url 'home' %}">Dashboard <span>Menu</span></a></li>
         <li><a href="{% url 'cash:index' %}">Cash <span>Management</span></a></li>
     </ul>
     {% if messages %}
@@ -30,14 +30,17 @@
             <!-- Column 1 start -->
             <h2>{% block content_header %}Dashboard{% endblock %}</h2>
             <h3>{% block content_subheader %}Cash summary{% endblock %}</h3>
+            {% block content %}{% endblock %}
             <!-- Column 1 end -->
         </div>
         <div class="col2">
             <!-- Column 2 start -->
-            <h2>Dashboard menu</h2>
-            <ul>
-                <li>Logout</li>
-            </ul>
+            {% block sidebar %}
+                <h3>Dashboard menu</h3>
+                <ul>
+                    <li>Logout</li>
+                </ul>
+            {% endblock %}
             <!-- Column 2 end -->
         </div>
     </div>
